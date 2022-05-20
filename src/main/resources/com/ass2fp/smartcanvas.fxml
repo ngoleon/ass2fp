@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorpane" prefHeight="480.0" prefWidth="636.0" xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar prefHeight="35.0" prefWidth="636.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem fx:id="newCanvasItem" mnemonicParsing="false" text="New canvas"/>
+                  <MenuItem fx:id="clearCanvasItem" mnemonicParsing="false" text="Clear canvas"/>
+                  <MenuItem fx:id="saveAsItem" mnemonicParsing="false" text="Save as"/>
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem fx:id="deleteElementItem" mnemonicParsing="false" text="Delete element"/>
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem fx:id="aboutItem" mnemonicParsing="false" text="About"/>
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Button fx:id="textButton" layoutX="7.0" layoutY="42.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0"
+              text="Text">
+         <font>
+            <Font size="10.0"/>
+         </font>
+      </Button>
+      <Button fx:id="imageButton" layoutX="7.0" layoutY="100.0" mnemonicParsing="false" prefHeight="50.0"
+              prefWidth="50.0" text="Image">
+         <font>
+            <Font size="10.0"/>
+         </font>
+      </Button>
+      <Button fx:id="rectButton" layoutX="7.0" layoutY="157.0" mnemonicParsing="false" prefHeight="50.0"
+              prefWidth="50.0" text="Rect">
+         <font>
+            <Font size="10.0"/>
+         </font>
+      </Button>
+      <Button fx:id="circleButton" layoutX="7.0" layoutY="214.0" mnemonicParsing="false" prefHeight="50.0"
+              prefWidth="50.0" text="Circle">
+         <font>
+            <Font size="10.0"/>
+         </font>
+      </Button>
+      <Button fx:id="canvasButton" layoutX="7.0" layoutY="274.0" mnemonicParsing="false" prefHeight="50.0"
+              prefWidth="50.0" text="Canvas">
+         <font>
+            <Font size="10.0"/>
+         </font>
+      </Button>
+      <Button fx:id="profileButton" layoutX="510.0" layoutY="5.0" prefHeight="25.0" prefWidth="50.0" text="Profile"/>
+      <Button fx:id="logoutButton" layoutX="568.0" layoutY="5.0" prefHeight="25.0" prefWidth="60.0" text="Log Out"/>
+      <ImageView fx:id="imageview" fitHeight="29.0" fitWidth="33.0" layoutX="361.0" layoutY="3.0" pickOnBounds="true"
+                 preserveRatio="true"/>
+      <Label fx:id="usernameLabel" layoutX="402.0" layoutY="9.0" prefHeight="18.0" prefWidth="99.0" text="username"/>
+      <Pane fx:id="paneCanvas" layoutX="71.0" layoutY="35.0" prefHeight="443.0" prefWidth="350.0"
+            style="-fx-background-color: #D3D3D3;">
+         <children>
+            <StackPane fx:id="hBoxCanvas" prefHeight="443.0" prefWidth="350.0"/>
+         </children>
+      </Pane>
+      <HBox fx:id="bgHBox" layoutX="424.0" layoutY="35.0" prefHeight="50.0" prefWidth="212.0" spacing="20.0"
+            visible="false">
+         <children>
+            <Label prefHeight="27.0" prefWidth="64.0" text="Background"/>
+            <ChoiceBox fx:id="bgChoiceBox" prefHeight="13.0" prefWidth="106.0"/>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+         </padding>
+      </HBox>
+      <HBox fx:id="imageHBox" layoutX="420.0" layoutY="35.0" prefHeight="100.0" prefWidth="212.0" spacing="15.0"
+            visible="false">
+         <children>
+            <Label prefHeight="27.0" prefWidth="64.0" text="Image"/>
+            <ChoiceBox fx:id="imageChoiceBox" prefHeight="13.0" prefWidth="106.0"/>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+         </padding>
+      </HBox>
+      <VBox fx:id="circleVBox" layoutX="421.0" layoutY="35.0" prefHeight="443.0" prefWidth="212.0" visible="false">
+         <children>
+            <Label prefHeight="27.0" prefWidth="64.0" text="Circle"/>
+            <ChoiceBox fx:id="circleChoiceBox" prefHeight="13.0" prefWidth="106.0"/>
+         </children>
+      </VBox>
+      <VBox fx:id="rectVBox" layoutX="424.0" layoutY="35.0" prefHeight="443.0" prefWidth="212.0" visible="false">
+         <children>
+            <Label prefHeight="27.0" prefWidth="64.0" text="Rectangle"/>
+            <ChoiceBox fx:id="rectChoiceBox" prefHeight="13.0" prefWidth="106.0"/>
+         </children>
+      </VBox>
+      <VBox fx:id="textVBox" layoutX="424.0" layoutY="35.0" prefHeight="443.0" prefWidth="212.0" visible="false">
+         <children>
+            <Label prefHeight="27.0" prefWidth="64.0" text="Text"/>
+            <ChoiceBox fx:id="textChoiceBox" prefHeight="13.0" prefWidth="106.0"/>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
