@@ -47,9 +47,12 @@ public class EditProfileController {
     }
 
     public void initialize() {
+        // Set base image
         imageview.setImage(new Image(model.getCurrentUser().getImagepath()));
 
+        // Edits profile
         okButton.setOnAction(ActionEvent -> {
+            // Checks name fields
             if (!fNameField.getText().isEmpty() && !lNameField.getText().isEmpty()) {
                 model.getCurrentUser().setfName(fNameField.getText());
                 model.getCurrentUser().setlName(lNameField.getText());
@@ -65,6 +68,7 @@ public class EditProfileController {
             }
         });
 
+        // Closes stage
         closeButton.setOnAction(ActionEvent -> {
             Node source = (Node) ActionEvent.getSource();
             Stage stage = (Stage) source.getScene().getWindow();

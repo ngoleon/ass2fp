@@ -48,29 +48,15 @@ public class CreateUserController {
 
     private Stage stage;
     private Scene scene;
-    private String filepath = "@download.jpg";
+    private String filepath = "/com/ass2fp/download.jpg";
 
     public CreateUserController(Stage stage, Model model) {
         this.stage = stage;
         this.model = model;
     }
 
-//    public void switchLoginScene(ActionEvent event) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
-//        LoginController loginController = new LoginController(stage);
-//        fxmlLoader.setController(loginController);
-//        scene = new Scene(fxmlLoader.load());
-//        stage.setScene(scene);
-//        stage.show();
-//    }
-
-//    public void createUser(ActionEvent event) throws IOException{
-//        if(!lNameField.getText().isEmpty() && !fNameField.getText().isEmpty() && !usernameField.getText().isEmpty() && !passField.getText().isEmpty()) {
-//            status.setText("It worked.");
-//        }
-//    }
-
     public void initialize() {
+        // Swap to log in stage
         closeButton.setOnAction(actionEvent -> {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
             LoginController loginController = new LoginController(stage, model);
@@ -85,28 +71,18 @@ public class CreateUserController {
             stage.show();
         });
 
+        // Create a new user
         createUserButton.setOnAction(ActionEvent -> {
+            // Checks if fields are empty
             if (!lNameField.getText().isEmpty() && !fNameField.getText().isEmpty() && !usernameField.getText().isEmpty() && !passField.getText().isEmpty()) {
-                //User user = new User(usernameField.getText(), passField.getText(), fNameField.getText(), lNameField.getText());
-//                boolean valid = userDaoTemp.setUserAccounts(usernameField.getText(), passField.getText(), fNameField.getText(), lNameField.getText());
-//                if(valid){
-//                    status.setText("Created " + userDaoTemp.getRegisteredUser());
-//                    status.setTextFill(Color.GREEN);
-//                } else {
-//                    status.setText("Cannot create user");
-//                    status.setTextFill(Color.RED);
-//                }
-//            } else {
-//                status.setText("One or more fields are empty");
-//                status.setTextFill(Color.RED);
-//            }
                 User user;
+                // Passes variables from fields to userDAO
                 try {
                     user = model.getUserDao().createUser(usernameField.getText(), passField.getText(), fNameField.getText(), lNameField.getText(), filepath);
                     status.setText("Created " + user.getUsername());
                     status.setTextFill(Color.GREEN);
+                    //If user is already taken change label and clear fields
                 } catch (SQLException e) {
-                    System.out.println(e);
                     status.setText("Username already taken");
                     status.setTextFill(Color.RED);
                     usernameField.clear();
@@ -114,20 +90,24 @@ public class CreateUserController {
                     fNameField.clear();
                     lNameField.clear();
                 }
-
             } else {
                 status.setText("One or more fields are empty");
                 status.setTextFill(Color.RED);
             }
         });
 
+        // Set profile image
         imageview.setOnMouseClicked(ActionEvent -> {
             System.out.println(imageview.getImage().getUrl());
             FileChooser fc = new FileChooser();
             fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.jpeg", "*.png", "*.jpg"));
 
             File file = fc.showOpenDialog(stage);
-            filepath = file.getAbsolutePath();
+            try {
+                filepath = file.getAbsolutePath();
+            } catch (NullPointerException e) {
+                System.out.println("No file chosen!");
+            }
             if (file != null) {
                 try {
                     InputStream fis = new FileInputStream(file);

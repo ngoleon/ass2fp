@@ -3,6 +3,7 @@ module com.example.ass2fp {
     requires javafx.fxml;
     requires java.sql;
     requires org.xerial.sqlitejdbc;
+    requires javafx.swing;
 
 
     opens com.ass2fp to javafx.fxml;

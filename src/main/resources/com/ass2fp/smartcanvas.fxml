@@ -7,116 +7,260 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorpane" prefHeight="480.0" prefWidth="636.0" xmlns="http://javafx.com/javafx/18"
+<AnchorPane fx:id="anchorpane" prefHeight="535.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/18"
             xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <MenuBar prefHeight="35.0" prefWidth="636.0">
-         <menus>
-            <Menu mnemonicParsing="false" text="File">
-               <items>
-                  <MenuItem fx:id="newCanvasItem" mnemonicParsing="false" text="New canvas"/>
-                  <MenuItem fx:id="clearCanvasItem" mnemonicParsing="false" text="Clear canvas"/>
-                  <MenuItem fx:id="saveAsItem" mnemonicParsing="false" text="Save as"/>
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Edit">
-               <items>
-                  <MenuItem fx:id="deleteElementItem" mnemonicParsing="false" text="Delete element"/>
+    <children>
+        <MenuBar prefHeight="35.0" prefWidth="844.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem fx:id="newCanvasItem" mnemonicParsing="false" text="New canvas"/>
+                        <MenuItem fx:id="clearCanvasItem" mnemonicParsing="false" text="Clear canvas"/>
+                        <MenuItem fx:id="saveAsItem" mnemonicParsing="false" text="Save as"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem fx:id="deleteElementItem" mnemonicParsing="false" text="Delete element"/>
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
                <items>
-                  <MenuItem fx:id="aboutItem" mnemonicParsing="false" text="About"/>
+                   <MenuItem fx:id="aboutItem" mnemonicParsing="false" text="About"/>
                </items>
             </Menu>
          </menus>
       </MenuBar>
-      <Button fx:id="textButton" layoutX="7.0" layoutY="42.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0"
-              text="Text">
-         <font>
-            <Font size="10.0"/>
-         </font>
-      </Button>
-      <Button fx:id="imageButton" layoutX="7.0" layoutY="100.0" mnemonicParsing="false" prefHeight="50.0"
-              prefWidth="50.0" text="Image">
-         <font>
-            <Font size="10.0"/>
-         </font>
-      </Button>
-      <Button fx:id="rectButton" layoutX="7.0" layoutY="157.0" mnemonicParsing="false" prefHeight="50.0"
-              prefWidth="50.0" text="Rect">
-         <font>
-            <Font size="10.0"/>
-         </font>
-      </Button>
-      <Button fx:id="circleButton" layoutX="7.0" layoutY="214.0" mnemonicParsing="false" prefHeight="50.0"
-              prefWidth="50.0" text="Circle">
-         <font>
-            <Font size="10.0"/>
-         </font>
-      </Button>
-      <Button fx:id="canvasButton" layoutX="7.0" layoutY="274.0" mnemonicParsing="false" prefHeight="50.0"
-              prefWidth="50.0" text="Canvas">
-         <font>
-            <Font size="10.0"/>
-         </font>
-      </Button>
-      <Button fx:id="profileButton" layoutX="510.0" layoutY="5.0" prefHeight="25.0" prefWidth="50.0" text="Profile"/>
-      <Button fx:id="logoutButton" layoutX="568.0" layoutY="5.0" prefHeight="25.0" prefWidth="60.0" text="Log Out"/>
-      <ImageView fx:id="imageview" fitHeight="29.0" fitWidth="33.0" layoutX="361.0" layoutY="3.0" pickOnBounds="true"
-                 preserveRatio="true"/>
-      <Label fx:id="usernameLabel" layoutX="402.0" layoutY="9.0" prefHeight="18.0" prefWidth="99.0" text="username"/>
-      <Pane fx:id="paneCanvas" layoutX="71.0" layoutY="35.0" prefHeight="443.0" prefWidth="350.0"
-            style="-fx-background-color: #D3D3D3;">
-         <children>
-            <StackPane fx:id="hBoxCanvas" prefHeight="443.0" prefWidth="350.0"/>
-         </children>
-      </Pane>
-      <HBox fx:id="bgHBox" layoutX="424.0" layoutY="35.0" prefHeight="50.0" prefWidth="212.0" spacing="20.0"
-            visible="false">
-         <children>
-            <Label prefHeight="27.0" prefWidth="64.0" text="Background"/>
-            <ChoiceBox fx:id="bgChoiceBox" prefHeight="13.0" prefWidth="106.0"/>
-         </children>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-         </padding>
-      </HBox>
-      <HBox fx:id="imageHBox" layoutX="420.0" layoutY="35.0" prefHeight="100.0" prefWidth="212.0" spacing="15.0"
-            visible="false">
-         <children>
-            <Label prefHeight="27.0" prefWidth="64.0" text="Image"/>
-            <ChoiceBox fx:id="imageChoiceBox" prefHeight="13.0" prefWidth="106.0"/>
-         </children>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-         </padding>
-      </HBox>
-      <VBox fx:id="circleVBox" layoutX="421.0" layoutY="35.0" prefHeight="443.0" prefWidth="212.0" visible="false">
-         <children>
-            <Label prefHeight="27.0" prefWidth="64.0" text="Circle"/>
-            <ChoiceBox fx:id="circleChoiceBox" prefHeight="13.0" prefWidth="106.0"/>
-         </children>
-      </VBox>
-      <VBox fx:id="rectVBox" layoutX="424.0" layoutY="35.0" prefHeight="443.0" prefWidth="212.0" visible="false">
-         <children>
-            <Label prefHeight="27.0" prefWidth="64.0" text="Rectangle"/>
-            <ChoiceBox fx:id="rectChoiceBox" prefHeight="13.0" prefWidth="106.0"/>
-         </children>
-      </VBox>
-      <VBox fx:id="textVBox" layoutX="424.0" layoutY="35.0" prefHeight="443.0" prefWidth="212.0" visible="false">
-         <children>
-            <Label prefHeight="27.0" prefWidth="64.0" text="Text"/>
-            <ChoiceBox fx:id="textChoiceBox" prefHeight="13.0" prefWidth="106.0"/>
-         </children>
-      </VBox>
-   </children>
+        <Button fx:id="textButton" layoutX="7.0" layoutY="42.0" mnemonicParsing="false" prefHeight="50.0"
+                prefWidth="50.0" text="Text">
+            <font>
+                <Font size="10.0"/>
+            </font>
+        </Button>
+        <Button fx:id="imageButton" layoutX="7.0" layoutY="100.0" mnemonicParsing="false" prefHeight="50.0"
+                prefWidth="50.0" text="Image">
+            <font>
+                <Font size="10.0"/>
+            </font>
+        </Button>
+        <Button fx:id="rectButton" layoutX="7.0" layoutY="157.0" mnemonicParsing="false" prefHeight="50.0"
+                prefWidth="50.0" text="Rect">
+            <font>
+                <Font size="10.0"/>
+            </font>
+        </Button>
+        <Button fx:id="circleButton" layoutX="7.0" layoutY="214.0" mnemonicParsing="false" prefHeight="50.0"
+                prefWidth="50.0" text="Circle">
+            <font>
+                <Font size="10.0"/>
+            </font>
+        </Button>
+        <Button fx:id="canvasButton" layoutX="7.0" layoutY="274.0" mnemonicParsing="false" prefHeight="50.0"
+                prefWidth="50.0" text="Canvas">
+            <font>
+                <Font size="10.0"/>
+            </font>
+        </Button>
+        <Button fx:id="profileButton" layoutX="709.0" layoutY="5.0" prefHeight="25.0" prefWidth="50.0" text="Profile"/>
+        <Button fx:id="logoutButton" layoutX="770.0" layoutY="4.0" prefHeight="25.0" prefWidth="60.0" text="Log Out"/>
+        <ImageView fx:id="imageview" fitHeight="29.0" fitWidth="33.0" layoutX="530.0" layoutY="3.0" pickOnBounds="true"
+                   preserveRatio="true"/>
+        <Label fx:id="usernameLabel" layoutX="576.0" layoutY="8.0" prefHeight="18.0" prefWidth="120.0" text="username"/>
+        <StackPane fx:id="paneCanvas" layoutX="74.0" layoutY="35.0" prefHeight="500.0" prefWidth="500.0"
+                   style="-fx-background-color: #D3D3D3;">
+            <children>
+                <StackPane fx:id="stackPaneCanvas" prefHeight="466.0" prefWidth="484.0"/>
+            </children>
+        </StackPane>
+        <HBox fx:id="bgHBox" layoutX="576.0" layoutY="35.0" prefHeight="50.0" prefWidth="212.0" spacing="20.0"
+              visible="false">
+            <children>
+                <Label prefHeight="27.0" prefWidth="64.0" text="Background"/>
+                <ChoiceBox fx:id="bgChoiceBox" prefHeight="13.0" prefWidth="106.0"/>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </HBox>
+        <VBox fx:id="imageVBox" layoutX="576.0" layoutY="35.0" prefHeight="500.0" prefWidth="270.0" spacing="20.0"
+              visible="false">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="212.0" spacing="15.0">
+                    <children>
+                        <Label prefHeight="27.0" prefWidth="64.0" text="Image Path"/>
+                        <Button fx:id="ImgButtonChangePath" mnemonicParsing="false" text="Change Path"/>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+                </HBox>
+                <Label prefHeight="27.0" prefWidth="116.0" text="Rotate"/>
+                <Slider fx:id="imgSliderRotate" max="360.0" prefHeight="14.0" prefWidth="192.0"/>
+                <Label text="Resize"/>
+                <Slider fx:id="imgSliderResize" min="10.0" value="500.0"/>
+            </children>
+        </VBox>
+        <VBox fx:id="circleVBox" layoutX="574.0" layoutY="35.0" prefHeight="500.0" prefWidth="270.0" spacing="20.0"
+              visible="false">
+            <children>
+                <Label prefHeight="27.0" prefWidth="109.0" text="Background Colour"/>
+                <ChoiceBox fx:id="circCbBgColour" prefHeight="13.0" prefWidth="106.0"/>
+                <Label prefHeight="27.0" prefWidth="116.0" text="Border Colour"/>
+                <ChoiceBox fx:id="circCbBorderColour" prefHeight="13.0" prefWidth="106.0"/>
+                <Label text="Border Width"/>
+                <TextField fx:id="circTfBorderWidth"/>
+                <Label prefHeight="27.0" prefWidth="116.0" text="Rotate"/>
+                <Slider fx:id="circSliderRotate" max="360.0" prefHeight="14.0" prefWidth="192.0"/>
+                <Label text="Resize Radius"/>
+                <Slider fx:id="circSliderResize" min="10.0" value="10.0"/>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </VBox>
+        <VBox fx:id="rectVBox" layoutX="574.0" layoutY="35.0" prefHeight="459.0" prefWidth="270.0" spacing="20.0"
+              visible="false">
+            <children>
+                <Label prefHeight="27.0" prefWidth="109.0" text="Background Colour"/>
+                <ChoiceBox fx:id="rectCbBgColour" prefHeight="13.0" prefWidth="106.0"/>
+                <Label prefHeight="27.0" prefWidth="116.0" text="Border Colour"/>
+                <ChoiceBox fx:id="rectCbBorderColour" prefHeight="13.0" prefWidth="106.0"/>
+                <Label text="Border Width"/>
+                <TextField fx:id="rectTfBorderWidth"/>
+                <Label prefHeight="27.0" prefWidth="116.0" text="Rotate"/>
+                <Slider fx:id="rectSliderRotate" max="360.0" prefHeight="14.0" prefWidth="192.0"/>
+                <Label text="Resize Width"/>
+                <Slider fx:id="rectSliderWidth" min="10.0" value="10.0"/>
+                <Label text="Resize Height"/>
+                <Slider fx:id="rectSliderHeight" min="10.0" value="10.0"/>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </VBox>
+        <VBox fx:id="textVBox" layoutX="574.0" layoutY="35.0" prefHeight="500.0" prefWidth="270.0" spacing="15.0"
+              visible="false">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label prefHeight="27.0" prefWidth="100.0" text="Text"/>
+                        <TextField fx:id="textTf" prefHeight="26.0" prefWidth="120.0"/>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label prefHeight="27.0" prefWidth="100.0" text="Font"/>
+                        <ChoiceBox fx:id="textCbFont" prefHeight="26.0" prefWidth="120.0"/>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label prefHeight="27.0" prefWidth="100.0" text="Font Size"/>
+                        <TextField fx:id="textTfFontSize" prefHeight="26.0" prefWidth="120.0"/>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label prefHeight="27.0" prefWidth="100.0" text="Attributes"/>
+                        <ToggleButton fx:id="textButtonBold" mnemonicParsing="false" text="Bold">
+                            <HBox.margin>
+                                <Insets right="10.0"/>
+                            </HBox.margin>
+                        </ToggleButton>
+                        <ToggleButton fx:id="textButtonItalic" mnemonicParsing="false" text="Italic"/>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label prefHeight="27.0" prefWidth="100.0" text="Text Colour"/>
+                        <ChoiceBox fx:id="textCbColour" prefHeight="26.0" prefWidth="120.0"/>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label prefHeight="27.0" prefWidth="100.0" text="Alignment"/>
+                        <Button fx:id="textButtonLeftAlign" mnemonicParsing="false" prefHeight="26.0" prefWidth="47.0"
+                                text="Left">
+                            <HBox.margin>
+                                <Insets right="2.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="textButtonMiddleAlign" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0"
+                                text="Middle">
+                            <HBox.margin>
+                                <Insets right="2.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="textButtonRightAlign" mnemonicParsing="false" prefHeight="26.0" prefWidth="55.0"
+                                text="Right">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label prefHeight="27.0" prefWidth="100.0" text="Border Colour"/>
+                        <ChoiceBox fx:id="textCbBorderColour" prefHeight="26.0" prefWidth="120.0"/>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label prefHeight="27.0" prefWidth="100.0" text="Border Width"/>
+                        <TextField fx:id="textTfBorderWidth" prefHeight="26.0" prefWidth="120.0"/>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label prefHeight="27.0" prefWidth="100.0" text="Background"/>
+                        <ChoiceBox fx:id="textCbBgColour" prefHeight="26.0" prefWidth="120.0"/>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label minWidth="100.0" prefHeight="27.0" prefWidth="100.0" text="Rotate"/>
+                        <Slider fx:id="textSliderRotate" max="360.0" prefHeight="14.0" prefWidth="140.0"/>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label prefHeight="27.0" prefWidth="100.0" text="Resize Width"/>
+                        <Slider fx:id="textSliderWidth" min="10.0" value="10.0"/>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label minWidth="100.0" text="Resize Height"/>
+                        <Slider fx:id="textSliderHeight" min="10.0" value="10.0"/>
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </VBox>
+        <HBox layoutX="92.0" layoutY="542.0" prefHeight="18.0" prefWidth="403.0" spacing="60.0">
+            <children>
+                <Label fx:id="labelx" text="x:"/>
+                <Label fx:id="labely" text="y:"/>
+                <Label fx:id="labelw" text="w:"/>
+                <Label fx:id="labelh" text="h:"/>
+                <Label fx:id="labelangle" text="angle:"/>
+            </children>
+        </HBox>
+        <Slider fx:id="globalSliderZoom" layoutX="577.0" layoutY="539.0" max="1.0" prefHeight="14.0" prefWidth="264.0"
+                value="1.0"/>
+        <Label layoutX="509.0" layoutY="537.0" text="Zoom Slider"/>
+    </children>
 </AnchorPane>

@@ -34,12 +34,15 @@ public class NewCanvasController {
 
     public void initialize() {
 
+        // Set new canvas button
         okButton.setOnAction(ActionEvent -> {
+            // Checks if width and height fields are empty
             if (!widthField.getText().isEmpty() && !heightField.getText().isEmpty()) {
                 try {
                     int height = Integer.parseInt(heightField.getText());
                     int width = Integer.parseInt(widthField.getText());
-                    if (height > 300 && width > 300) {
+                    // Height and width bounds
+                    if (height > model.getMaxCanvasHeight() || width > model.getMaxCanvasWidth()) {
                         throw new NumberFormatException();
                     }
                     Node source = (Node) ActionEvent.getSource();
@@ -54,6 +57,7 @@ public class NewCanvasController {
             }
         });
 
+        // Closes stage
         cancelButton.setOnAction(ActionEvent -> {
             Node source = (Node) ActionEvent.getSource();
             Stage stage = (Stage) source.getScene().getWindow();
